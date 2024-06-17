@@ -1,0 +1,56 @@
+package entidade;
+
+import java.util.Locale;
+import java.util.Scanner;
+
+public class ContaCorrente {
+	
+	private float saldo;
+	private String cliente;
+	
+	
+	public static void main(String[] args) {
+		
+	Locale.setDefault(Locale.US);
+	Scanner sc = new Scanner(System.in);
+	
+	System.out.println("Entre com o Saldo:");
+	float saldo = sc.nextFloat();
+	
+	System.out.println("Entre com o Nome do Cliente:");
+	String cliente = sc.nextLine();
+	
+	ContaCorrente geral = new ContaCorrente (saldo,cliente);
+	
+	geral.impressao(saldo,cliente);
+	
+	sc.close();
+	}
+	
+	public ContaCorrente(float saldo, String cliente) {
+		setsaldo(saldo);
+		setcliente(cliente);
+	}
+	
+	public float getsaldo() {
+		return saldo;
+	}
+	public float setsaldo(float saldo) {
+		if (saldo < 0) {
+			saldo = 0;
+		}
+		return this.saldo = saldo;
+	}
+	
+	public String getcliente() {
+		return cliente;
+	}
+	public String setcliente(String cliente) {
+		return this.cliente = cliente;
+	}
+	
+	public void impressao (float saldo, String cliente) {
+		 System.out.format("Ficha: %d/%d", saldo, cliente) ;
+	 }
+	
+}
